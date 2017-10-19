@@ -5,6 +5,6 @@ package com.wuochoang.popularmovie.network;
  */
 
 public interface ApiService {
-
+    String API_DISCOVER_MOVIE = "https://api.themoviedb.org/3/discover/movie/";
 
 }

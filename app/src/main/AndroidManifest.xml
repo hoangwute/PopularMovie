@@ -21,9 +21,6 @@
             </intent-filter>
         </activity>
         <activity android:name="com.wuochoang.popularmovie.base.BaseSubActivity" />
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="585edb693aeedcd122128a3d33612804b2a31894" />
     </application>
 
 </manifest>
