@@ -38,4 +38,5 @@ public class ApplicationModule {
     public EventBus provideEventBus() {
         return EventBus.getDefault();
     }
+
 }

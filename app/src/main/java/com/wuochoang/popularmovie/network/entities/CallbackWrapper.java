@@ -1,7 +1,10 @@
 package com.wuochoang.popularmovie.network.entities;
 
+import android.app.ProgressDialog;
+
 import com.wuochoang.popularmovie.base.BaseView;
 import com.olddog.common.ToastUtils;
+import com.wuochoang.popularmovie.model.base.ApiResult;
 
 import org.json.JSONObject;
 
@@ -17,10 +20,11 @@ import retrofit2.HttpException;
  * Created by TuanJio on 8/11/2017.
  */
 
-public abstract class CallbackWrapper<T extends BaseResult> extends DisposableObserver<T> {
+public abstract class CallbackWrapper<T> extends DisposableObserver<T> {
 
     // BaseView is just a reference of a View in MVP
     private WeakReference<BaseView> weakReference;
+
 
     public CallbackWrapper(BaseView view) {
         this.weakReference = new WeakReference<>(view);
@@ -33,24 +37,26 @@ public abstract class CallbackWrapper<T extends BaseResult> extends DisposableOb
         //You can return StatusCodes of different cases from your API and handle it here. I usually include these cases on BaseResponse and iherit it from every Response
 //        int code = t.getCode();
 //        if(code == 0) onSuccess(t);
+        onSuccess(t);
     }
 
     @Override
     public void onError(Throwable e) {
-        BaseView view = null;
-        if(weakReference != null)
-            view = weakReference.get();
-        if (e instanceof HttpException) {
-            ResponseBody responseBody = ((HttpException) e).response().errorBody();
-            view.onRequestFailure(getErrorMessage(responseBody));
-        } else if (e instanceof SocketTimeoutException) {
-            ToastUtils.show("Error timeout!");
-        } else if (e instanceof IOException) {
-            view.onNetworkError();
-            ToastUtils.show("Error connect!");
-        } else {
-            view.onRequestFailure(e.getMessage());
-        }
+//        BaseView view = null;
+//        if(weakReference != null)
+//            view = weakReference.get();
+//        if (e instanceof HttpException) {
+//            ResponseBody responseBody = ((HttpException) e).response().errorBody();
+//            view.onRequestFailure(getErrorMessage(responseBody));
+//        } else if (e instanceof SocketTimeoutException) {
+//            ToastUtils.show("Error timeout!");
+//        } else if (e instanceof IOException) {
+//            view.onNetworkError();
+//            ToastUtils.show("Error connect!");
+//        } else {
+//            view.onRequestFailure(e.getMessage());
+//        }
+        ToastUtils.showLong("Sumthing wong");
     }
 
     @Override

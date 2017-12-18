@@ -13,6 +13,10 @@ import io.reactivex.disposables.CompositeDisposable;
  */
 
 public abstract class BasePresenter<T extends BaseView> implements Presenter<T> {
+
+    public BasePresenter(ApiService apiService) {
+        this.apiService = apiService;
+    }
     @Inject
     protected ApiService apiService;
     private T view;

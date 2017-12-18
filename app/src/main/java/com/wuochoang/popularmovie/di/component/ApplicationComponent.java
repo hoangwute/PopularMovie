@@ -1,5 +1,7 @@
 package com.wuochoang.popularmovie.di.component;
 
+import com.wuochoang.popularmovie.base.BasePresenter;
+import com.wuochoang.popularmovie.base.BaseView;
 import com.wuochoang.popularmovie.di.module.ActivityModule;
 import com.wuochoang.popularmovie.di.module.ApplicationModule;
 import com.wuochoang.popularmovie.di.module.NetworkModule;
@@ -23,5 +25,6 @@ public interface ApplicationComponent {
     ActivityComponent plus(ActivityModule module);
 
     void inject(MyServiceInterceptor myServiceInterceptor);
+    void inject(BasePresenter<BaseView> presenter);
 
 }

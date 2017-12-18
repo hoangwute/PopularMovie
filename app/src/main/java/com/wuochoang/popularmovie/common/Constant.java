@@ -5,6 +5,10 @@ package com.wuochoang.popularmovie.common;
  */
 
 public interface Constant {
-    String KEY_USER_MODEL = "user_model";
-    String PLATFORM_DEVICE = "android";
+
+    String SERVER_URL = "https://api.themoviedb.org/3/";
+    String API_KEY = "ab432178d347daad1c772c0fc2e517f7";
+    String SORT_MOST_POPULARITY = "popularity.desc";
+    String MOVIE_LANGUAGE = "en-US";
+
 }

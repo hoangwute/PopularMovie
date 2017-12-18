@@ -2,6 +2,7 @@ package com.wuochoang.popularmovie.di.module;
 
 import android.app.Application;
 
+import com.wuochoang.popularmovie.common.Constant;
 import com.wuochoang.popularmovie.network.ApiService;
 import com.wuochoang.popularmovie.network.MyServiceInterceptor;
 import com.wuochoang.popularmovie.network.UserAgentInterceptor;
@@ -137,7 +138,7 @@ public class NetworkModule {
     @Provides
     public Retrofit provideRetrofit(Gson gson, OkHttpClient okHttpClient) {
         return new Retrofit.Builder()
-                .baseUrl(BuildConfig.BASE_URL_DEV)
+                .baseUrl(Constant.SERVER_URL)
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

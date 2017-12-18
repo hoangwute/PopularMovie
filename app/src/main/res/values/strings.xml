@@ -22,4 +22,11 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
 
+    <string name="Movie">Movie</string>
+    <string name="Popular">Popular</string>
+    <string name="Favourites">Favourites</string>
+    <string name="title_activity_movie_details">MovieDetailsActivity</string>
+
+    <string name="release_date">Release Date: %s</string>
+
 </resources>

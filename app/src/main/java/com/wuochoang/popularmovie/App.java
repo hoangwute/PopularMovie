@@ -42,4 +42,12 @@ public class App extends AppCommon {
     public void setCurrentActivity(BaseActivity currentActivity) {
         this.currentActivity = currentActivity;
     }
+
+    public static int getColorResource(int colorResource){
+        return get().getResources().getColor(colorResource);
+    }
+
+    public static String getStringResource(int string){
+        return get().getResources().getString(string);
+    }
 }

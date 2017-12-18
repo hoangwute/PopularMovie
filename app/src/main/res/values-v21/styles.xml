@@ -4,7 +4,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorBlue</item>
+        <item name="colorPrimaryDark">@color/red_app</item>
         <item name="colorAccent">@color/colorPrimary</item>
         <!--<item name="android:fontFamily">@font/roboto</item>-->
         <!--<item name="fontFamily">@font/roboto</item>-->
@@ -16,9 +16,9 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#FFC107</item>
         <item name="colorPrimaryDark">#FFC107</item>
-        <item name="colorAccent">#FFC107</item>
-        <item name="colorControlNormal">#FFC107</item>
-        <item name="colorControlActivated">#FFC107</item>
+        <item name="colorAccent">@color/red_app</item>
+        <item name="colorControlNormal">@color/red_app</item>
+        <item name="colorControlActivated">@color/red_app</item>
         <!--<item name="android:fontFamily">@font/roboto</item>-->
     </style>
 

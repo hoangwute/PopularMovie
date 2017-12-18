@@ -81,4 +81,6 @@
 
     <!-- graph color -->
     <color name="bg_screen">#e3ebf6</color>
+    <color name="red_app">#960018</color>
+
 </resources>

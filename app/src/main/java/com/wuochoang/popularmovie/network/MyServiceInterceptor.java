@@ -11,6 +11,7 @@ import java.io.IOException;
 
 import javax.inject.Inject;
 
+import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -41,28 +42,14 @@ public class MyServiceInterceptor implements Interceptor {
 
     @Override
     public Response intercept(Chain chain) throws IOException {
-        Request request = chain.request();
-        Request.Builder requestBuilder = request.newBuilder();
-        requestBuilder.method(request.method(), request.body());
-
-        if (request.header(NO_AUTH_HEADER_KEY) == null) {
-            // needs credentials
-            // Nếu không cần login thì sẽ dùng basic addInterceptorAuthentication
-            // Các Api cần Token thì sẽ cần Bearer Authentication
-            sessionToken = App.get().getAccessToken();
-            if (sessionToken != null) {
-                requestBuilder.addHeader("Authorization", "Bearer " + sessionToken);
-            } else {
-                requestBuilder.addHeader("Authorization", encodeCredentialsForBasicAuthorization());
-            }
-            requestBuilder.addHeader(CONTENT_TYPE, CONTENT_TYPE_VALUE);
-            requestBuilder.addHeader("device_code", Config.getDeviceCode());
-            requestBuilder.addHeader("name", Config.getNameDevice());
-            requestBuilder.addHeader("platform", Constant.PLATFORM_DEVICE);
-            requestBuilder.addHeader("version", BuildConfig.VERSION_NAME);
-        }
-
-        return chain.proceed(requestBuilder.build());
+        Request original = chain.request();
+        HttpUrl originalHttlUrl = original.url();
+        HttpUrl url = originalHttlUrl.newBuilder()
+                .addQueryParameter("api_key", Constant.API_KEY)
+                .build();
+        Request.Builder requestBuilder = original.newBuilder().url(url);
+        Request request = requestBuilder.build();
+        return chain.proceed(request);
     }
 
     public static String encodeCredentialsForBasicAuthorization() {
